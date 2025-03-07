@@ -1,0 +1,137 @@
+body {
+    font-family: 'Arial', sans-serif;
+    background: linear-gradient(to right, #ff758c, #ff7eb3);
+    text-align: center;
+    color: white;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+}
+
+.container {
+    width: 80%;  /* Hoặc giá trị cố định như 1200px */
+    max-width: 1200px;  /* Để tránh quá rộng trên màn hình lớn */
+    margin: 0 auto;  /* Căn giữa */
+}
+
+html, body {
+    height: auto;
+    overflow: auto;
+}
+
+
+h1 {
+    font-size: 36px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+    animation: fadeIn 2s ease-in-out;
+}
+
+.message {
+    font-size: 20px;
+    margin-bottom: 20px;
+    animation: fadeIn 2.5s ease-in-out;
+}
+
+@keyframes upDown {
+    0% { transform: translateY(0); }
+    50% { transform: translateY(-20px); } /* Di chuyển lên */
+    100% { transform: translateY(0); } /* Quay lại vị trí ban đầu */
+}
+
+.gallery .image-container {
+    animation: upDown 3s ease-in-out infinite; /* Thực hiện vô hạn */
+}
+
+.gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+    grid-auto-rows: 200px;
+    gap: 15px;
+    justify-content: center;
+    padding: 40px;
+}
+
+.image-container {
+    position: relative;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s ease-in-out;
+}
+
+/* Hiệu ứng khi hover */
+.image-container:hover {
+    transform: scale(1.05);
+}
+
+/* Định dạng ảnh */
+.gallery img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 15px;
+}
+
+.love-note {
+    font-size: 24px;
+    font-style: italic;
+    margin-top: 20px;
+    color: #fff9c4;
+    animation: fadeIn 3s ease-in-out;
+}
+
+.footer {
+    margin-top: 30px;
+    font-size: 18px;
+    animation: fadeIn 3.5s ease-in-out;
+}
+
+.btn {
+    background: #ff4f81;
+    border: none;
+    padding: 10px 20px;
+    color: white;
+    font-size: 18px;
+    cursor: pointer;
+    border-radius: 5px;
+    margin-top: 20px;
+    transition: background 0.3s;
+}
+
+.btn:hover {
+    background: #ff3366;
+}
+
+/* Hiệu ứng động */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes float {
+    from { transform: translateY(0px); }
+    to { transform: translateY(-10px); }
+}
+
+.heart {
+    position: fixed;
+    bottom: 0;
+    font-size: 30px; /* Tăng kích thước để dễ thấy */
+    color: blue;
+    animation: floatUp 5s linear infinite;
+    z-index: 9999;
+}
+
+@keyframes floatUp {
+    0% { transform: translateY(0) scale(1); opacity: 1; }
+    100% { transform: translateY(-100vh) scale(1.5); opacity: 0; }
+}
+
+@media (max-width: 768px) {
+    .container {
+        width: 95%;
+    }
+    .gallery {
+        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    }
+}
